@@ -1,0 +1,66 @@
+*.py[co]
+*.bak
+tmp
+
+# Python cProfile
+profiling_*
+output.pstats
+.pybuilder/
+.vscode/
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+target
+develop-eggs
+.installed.cfg
+.project
+.pydevproject
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+htmlcov
+.coverage
+.tox
+
+#Translations
+*.mo
+
+#Mr Developer
+.mr.developer.cfg
+
+# Idea files
+.idea
+*.iml
+
+# Virtual env
+ve*
+
+.*~
+*~
+.*.swp
+
+# sublime project files
+yadtshell.sublime*
+.ropeproject
+.codeintel
+
+# sonar analysis
+.sonar
+
+
+# MACOS specific files
+.DS_Store
+
+# Ninja IDE
+*.nja
+
+tags
