@@ -10,6 +10,6 @@ Done right, it can become a 50$ 24/7 low powered custom personal monitoring tool
 
 
 TODO: 
->hookup vector handler
->hookup commandline argument parser to run with/without vector etc
->setup logging etc more nicely rather than jamming into main
+#hookup vector handler
+#hookup commandline argument parser to run with/without vector etc
+#setup logging etc more nicely rather than jamming into main
