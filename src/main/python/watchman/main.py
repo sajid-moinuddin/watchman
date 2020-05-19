@@ -19,7 +19,9 @@ def begin(log_level = logging.INFO):
 
     logging.basicConfig(
         level=log_level,
-        format="%(asctime)s [%(threadName)-12.12s] [%(module)s:%(filename)s:%(lineno)d] [%(funcName)s->%(levelname)-5.5s]  %(message)s",
+        # format="%(asctime)s [%(threadName)-12.12s] [%(module)s:%(filename)s:%(lineno)d] [%(funcName)s->%(levelname)-5.5s]  %(message)s",
+        format="%(asctime)s",
+        
         handlers=[
             logging.FileHandler("/var/log/watchman/watchman.log"),
             logging.StreamHandler(sys.stdout)
