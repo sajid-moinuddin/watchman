@@ -20,16 +20,12 @@ class Utils:
     @staticmethod
     def alarm(count = 1):
         for i in range(1, count + 1):
-            directory_path = os.path.dirname(__file__)
-            file_path = os.path.join(directory_path, 'vector_alert.wav')
-            Utils.playfile(file_path)
+            Utils.playfile('/usr/local/share/vector_alert.wav')
 
     @staticmethod
     def whistle(count = 1):
-        directory_path = os.path.dirname(__file__)
-        file_path = os.path.join(directory_path, 'vector_bell_whistle.wav')
         for i in range(1, count + 1):
-            Utils.playfile(file_path)
+            Utils.playfile('/usr/local/share/vector_bell_whistle.wav')
 
 
     @staticmethod

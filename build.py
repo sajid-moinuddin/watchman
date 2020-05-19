@@ -11,7 +11,7 @@ use_plugin("python.core")
 # use_plugin("python.flake8")
 # use_plugin("python.coverage")
 use_plugin("python.distutils")
-# use_plugin("copy_resources")
+use_plugin("copy_resources")
 
 description = "Night gathers, and now my watch begins..."
 name = "watchman"
@@ -26,9 +26,12 @@ def run():
 @init
 def set_properties(project):
     install_dependencies(project)
-    # project.get_property("copy_resources_glob").append("src/main/resources/vector_alert.wav")
-    # project.get_property("copy_resources_glob").append("src/main/resources/vector_bell_whistle.wav")
+    project.get_property("copy_resources_glob").append("src/main/resources/vector_alert.wav")
+    project.get_property("copy_resources_glob").append("src/main/resources/vector_bell_whistle.wav")
     project.set_property("copy_resources_target", "$dir_dist")
+
+    project.install_file('/usr/local/share', "src/main/resources/vector_bell_whistle.wav")
+    project.install_file('/usr/local/share', "src/main/resources/vector_alert.wav")
     
 #TODO: find a way to install brew install mpg321
 @task
