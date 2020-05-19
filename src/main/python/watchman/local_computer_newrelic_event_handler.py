@@ -16,7 +16,7 @@ class LocalComputerEventHandler:
         Utils.text_2_speech(text_2_speech)
         # Utils.text_2_speech(f"summary: {event.message}")
         logging.info("____>>>> %s", event.print_full())
-        logging.info("____>>>> \n\n%s", event)
+        logging.info("____>>>> \n\n%s", text_2_speech)
         logging.debug("---------------------------------------------------------------------------------------")
         
     def startListen(self):
