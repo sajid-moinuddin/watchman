@@ -18,7 +18,7 @@ def begin(log_level = logging.INFO):
     fileName = 'watchman'
 
     logging.basicConfig(
-        level=logging.DEBUG,
+        level=log_level,
         format="%(asctime)s [%(threadName)-12.12s] [%(module)s:%(filename)s:%(lineno)d] [%(funcName)s->%(levelname)-5.5s]  %(message)s",
         handlers=[
             logging.FileHandler("/var/log/watchman/watchman.log"),
@@ -26,11 +26,11 @@ def begin(log_level = logging.INFO):
         ]
     )
 
-    connection_logger = logging.getLogger('requests')
-    connection_logger.setLevel(log_level)
+    # connection_logger = logging.getLogger('requests')
+    # connection_logger.setLevel(log_level)
 
-    connection_logger = logging.getLogger('connectionpool')
-    connection_logger.setLevel(log_level)
+    # connection_logger = logging.getLogger('connectionpool')
+    # connection_logger.setLevel(log_level)
 
 
     use_anki = os.environ.get('USE_ANKI')
