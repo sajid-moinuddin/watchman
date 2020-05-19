@@ -30,8 +30,8 @@ def set_properties(project):
     project.get_property("copy_resources_glob").append("src/main/resources/vector_bell_whistle.wav")
     project.set_property("copy_resources_target", "$dir_dist")
 
-    project.install_file('/usr/local/share', "src/main/resources/vector_bell_whistle.wav")
-    project.install_file('/usr/local/share', "src/main/resources/vector_alert.wav")
+    project.install_file('/usr/local/share/vector_bell_whistle.wav', "src/main/resources/vector_bell_whistle.wav")
+    project.install_file('/usr/local/share/vector_alert.wav', "src/main/resources/vector_alert.wav")
     
 #TODO: find a way to install brew install mpg321
 @task
