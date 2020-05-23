@@ -53,3 +53,4 @@ def install_dependencies(project):
     project.depends_on('gTTS')
     project.depends_on('anki_vector')
     project.depends_on('text-to-image')
+    project.depends_on('kubernetes')

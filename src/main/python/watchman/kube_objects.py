@@ -123,21 +123,6 @@ class KubeObjects:
             return False
 
 
-    @staticmethod
-    def print_preety(dict_object, *argv):
-        pattern = ''
-        vars = []
-
-        iter_arg = iter(argv)
-        
-        pattern += '{:70.62}'
-        vars.append(dict_object[next(iter_arg)])
-
-        for a in iter_arg:
-            pattern += '{:30.20}'
-            vars.append(str(dict_object[a]))
-
-        print(pattern.format(*vars))
 
 
 def clear():
@@ -149,37 +134,31 @@ def clear():
     else: 
         _ = system('clear')     
 
-kube_objects = KubeObjects()
-kube_objects.refresh(use_cache=True)
+# kube_objects = KubeObjects()
+# kube_objects.refresh(use_cache=True)
 
 
+# while True:
+#     kube_objects.refresh(use_cache=False)
+#     clear()
 
+#     print("******************* Not Running Pods **************")
+#     for i in kube_objects.pod_nodes():
+#         if kube_objects.is_good_state(i['pod_state']) or 'overprovisioner-pause-pod' in i['pod_name']:
+#             continue
+#         else:
+#             kube_objects.print_preety(i, 'pod_name', 'pod_state', 'node_group', 'node_lifecycle')
+#     print("---------------------------------------------------")
 
-# print(kube_objects.all_pods[0])
+#     print("******************* Not Running Overprivisioning Pods **************")
+#     for i in kube_objects.pod_nodes(label_key='run', label_value='overprovisioner-pause-pod'):
+#         if kube_objects.is_good_state(i['pod_state']):
+#             continue
+#         else:
+#             kube_objects.print_preety(i, 'pod_name', 'pod_state', 'node_group', 'node_lifecycle')
+#     print("---------------------------------------------------")
 
-# kube_objects.print_node_pods()
-
-while True:
-    kube_objects.refresh(use_cache=False)
-    clear()
-
-    print("******************* Not Running Pods **************")
-    for i in kube_objects.pod_nodes():
-        if kube_objects.is_good_state(i['pod_state']) or 'overprovisioner-pause-pod' in i['pod_name']:
-            continue
-        else:
-            kube_objects.print_preety(i, 'pod_name', 'pod_state', 'node_group', 'node_lifecycle')
-    print("---------------------------------------------------")
-
-    print("******************* Not Running Overprivisioning Pods **************")
-    for i in kube_objects.pod_nodes(label_key='run', label_value='overprovisioner-pause-pod'):
-        if kube_objects.is_good_state(i['pod_state']):
-            continue
-        else:
-            kube_objects.print_preety(i, 'pod_name', 'pod_state', 'node_group', 'node_lifecycle')
-    print("---------------------------------------------------")
-
-    time.sleep(2)
+#     time.sleep(2)
 
 # print("******************* OverProvisioner Pods **************")
 
