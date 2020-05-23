@@ -150,7 +150,7 @@ def clear():
         _ = system('clear')     
 
 kube_objects = KubeObjects()
-kube_objects.refresh(use_cache=True)
+kube_objects.refresh(use_cache=False)
 
 
 
@@ -165,21 +165,21 @@ while True:
 
     print("******************* Not Running Pods **************")
     for i in kube_objects.pod_nodes():
-        if kube_objects.is_good_state(i['pod_state']) or 'overprovisioner-pause-pod' in i['pod_name']:
+        if kube_objects.is_good_state(i['pod_state']) or 'autoscaler-overprovisioner' in i['pod_name']:
             continue
         else:
             kube_objects.print_preety(i, 'pod_name', 'pod_state', 'node_group', 'node_lifecycle')
     print("---------------------------------------------------")
 
     print("******************* Not Running Overprivisioning Pods **************")
-    for i in kube_objects.pod_nodes(label_key='run', label_value='overprovisioner-pause-pod'):
+    for i in kube_objects.pod_nodes(label_key='run', label_value='autoscaler-overprovisioner'):
         if kube_objects.is_good_state(i['pod_state']):
             continue
         else:
             kube_objects.print_preety(i, 'pod_name', 'pod_state', 'node_group', 'node_lifecycle')
     print("---------------------------------------------------")
 
-    time.sleep(2)
+    time.sleep(10)
 
 # print("******************* OverProvisioner Pods **************")
 
