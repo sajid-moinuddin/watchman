@@ -12,7 +12,7 @@ class Utils:
         logging.debug("Beep!")
 
     def append_to_logfile(txt):
-        f=open("k8s_events.log", "a+")
+        f=open("/var/log/watchman/k8s_events.log", "a+")
         f.write(txt)
         f.write(f"\n-----------------------------------------{ctime(time())}----------------------------------------------------\n")
         f.close()
