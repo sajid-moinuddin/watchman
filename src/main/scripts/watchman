@@ -5,15 +5,11 @@ Night gathers, and now my watch begins.
 
 Usage:
 watchman watch [options]
-watchman show pods [options]
-watchman show scaling [options]
 
 Options:
 -v --verbose                 be more verbose
 --vector-id STRING           if you want vector to create a scene
 --version                    show version
--l STRING                    label selector
--w                           watch mode
 """
 
 """
@@ -26,14 +22,11 @@ uninstall
 import logging
 import sys
 import logging
-from watchman.kube_objects import KubeObjects
-from watchman.watchman_utils import Utils 
+
 from docopt import docopt
 # from watchman import watchman_utils
 from watchman import main
 arguments = docopt(__doc__, version='${version}')
-
-
 
 verbose_mode = False
 action = None
@@ -43,23 +36,7 @@ log_level = logging.INFO
 if verbose_mode:
     log_level = logging.DEBUG
 
-# print(arguments)
-
-if arguments['show'] and arguments['pods']:
-    kube_objects = KubeObjects()
-    kube_objects.refresh()
-
-    label_key = None
-    label_val = None
-    if arguments['-l']:
-        parsed = Utils.parse_key_val(arguments['-l'])
-        label_key, label_val = parsed
-
-    pod_nodes = kube_objects.pod_nodes(label_key=label_key, label_value=label_val)
-    pod_nodes.sort(key= lambda n: str(n['node_lifecycle']))
-    for pn in pod_nodes:
-        Utils.print_preety(pn, 'pod_name', 'namespace', 'pod_state', 'node_group', 'node_lifecycle')
-# print('.............Night gathers, and now my watch begins..............\n')
+print('.............Night gathers, and now my watch begins..............\n')
 
 
-# main.begin(log_level)
+main.begin(log_level)
