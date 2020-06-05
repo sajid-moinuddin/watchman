@@ -1,5 +1,7 @@
+.idea
 venv
 target
 .vscode
 .pybuilder
 __pycache__
+watchman.iml
