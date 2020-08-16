@@ -8,6 +8,7 @@ Plan is to scrape newrelic and various other datasource from my raspberry pi and
 
 Done right, it can become a 50$ 24/7 low powered custom personal monitoring tool. 
 
+NOTE: the project use pybuilder, pls follow pybuilder docs how to setup/run
 
 TODO: 
 - hookup vector handler
